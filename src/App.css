@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +32,45 @@
     transform: rotate(360deg);
   }
 }
+
+  /* top-left border-radius */
+  table thead:first-child th:first-child {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    padding-left: 2rem;
+    min-width: 300px;
+  }
+  
+  /* top-right border-radius */
+  table thead:first-child th:last-child {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+  
+  table tr td:first-child {
+    padding-left: 2rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+  }
+  
+  table tr td:last-child {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+  
+  table tr td {
+    font-weight: 500;
+    padding: 1rem 0;
+  }
+  
+  th {
+    padding: 1rem 0;
+    font-size: large;
+    color: #052c57;
+    text-align: start;
+    min-width: 150px;
+  }
+
+  table thead:first-child th:first-child {
+    padding-left: 1 rem;
+  }

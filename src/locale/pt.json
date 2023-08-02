@@ -1,5 +1,13 @@
 {
-    "translation":{
-        "user_transactions": "Transações do usuário (GBP)"
+    "translation": {
+      "user_transactions": "Transações do Usuário (GBP)",
+      "account_number": "Número da Conta",
+      "branch_code": "Código da Agência",
+      "balance": "Saldo",
+      "transaction": "Transação",
+      "date": "Data",
+      "category": "Categoria",
+      "debit": "Débito",
+      "credit": "Crédito"
     }
-}
+  }

@@ -9,6 +9,10 @@ module.exports = {
         infoName: "#002554",
         tableHeaderBg: "#ECECEC",
         tableHeaderFont: "#052C57",
+        tableRowBg: "#F7F7F7",
+      },
+      minWidth: {
+        info: "600px",
       },
     },
   },

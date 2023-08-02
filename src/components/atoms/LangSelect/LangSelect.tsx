@@ -4,7 +4,11 @@ import { useTranslation } from "react-i18next";
 
 const LangSelect = () => {
   const options = languages.map((language) => {
-    return <option value={language.code}>{language.name}</option>;
+    return (
+      <option value={language.code} key={language.code}>
+        {language.name}
+      </option>
+    );
   });
   const [t, i18n] = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState("en");
