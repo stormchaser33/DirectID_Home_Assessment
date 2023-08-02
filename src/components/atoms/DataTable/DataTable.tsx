@@ -11,8 +11,8 @@ type TColumn = {
 };
 
 interface IDataTableProp {
-  data: Array<TRowData>;
-  columns: TColumn[];
+  data: Array<{ [key: string]: string | number }>;
+  columns: { [key: string]: TColumn };
 }
 
 interface ISortOption {
@@ -51,30 +51,32 @@ const DataTable: React.FC<IDataTableProp> = ({ columns, data }) => {
       return;
     }
 
-    // Fetch more data after a delay (to simulate fetching data from an API)
     setTimeout(() => {
       setDisplayData(data.slice(0, displayData.length + 50));
     }, 500);
   };
 
-  const handleSort = (name: string) => {
+  const handleSort = (columnName: string) => {
     const newSortOption = {
-      name,
+      name: columnName,
       status:
-        sortOption.name === name && sortOption.status === "desc"
+        sortOption.name === columnName && sortOption.status === "desc"
           ? "asc"
           : "desc",
     };
 
-    const sortFunc = (a: TRowData, b: TRowData) => {
+    const sortFunc = (
+      a: { [key: string]: string | number },
+      b: { [key: string]: string | number }
+    ) => {
       let compareA: number | string, compareB: number | string;
 
-      if (name === t("date")) {
-        compareA = new Date(a[1]).getTime();
-        compareB = new Date(b[1]).getTime();
-      } else if (name === t("category")) {
-        compareA = a[2] as string;
-        compareB = b[2] as string;
+      if (columnName === t("date")) {
+        compareA = new Date(a["date"] as string).getTime();
+        compareB = new Date(b["date"] as string).getTime();
+      } else if (columnName === t("category")) {
+        compareA = a["category"] as string;
+        compareB = b["category"] as string;
       } else {
         return 0;
       }
@@ -126,7 +128,7 @@ const DataTable: React.FC<IDataTableProp> = ({ columns, data }) => {
           <table className="w-full">
             <thead className="text-left sticky top-0">
               <tr className="bg-tableHeaderBg rounded-lg">
-                {columns.map((item, index) => (
+                {Object.values(columns).map((item, index) => (
                   <th
                     key={"head" + index}
                     className={`py-5 ${item.sort && "cursor-pointer"}`}
@@ -149,8 +151,9 @@ const DataTable: React.FC<IDataTableProp> = ({ columns, data }) => {
                 <tr
                   className={`${index % 2 === 1 && "bg-tableRowBg"}`}
                   key={"body" + index}
+                  data-testid="table-row"
                 >
-                  {values.map((val, index) => (
+                  {Object.values(values).map((val, index) => (
                     <td key={"item" + index}>{val}</td>
                   ))}
                 </tr>
