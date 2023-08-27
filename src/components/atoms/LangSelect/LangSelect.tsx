@@ -10,7 +10,7 @@ const LangSelect = () => {
       </option>
     );
   });
-  const [t, i18n] = useTranslation();
+  const [_, i18n] = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState("en");
 
   const onChange = (e: any) => {

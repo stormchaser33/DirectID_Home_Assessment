@@ -46,7 +46,7 @@ const Header: React.FC<{ data: IHeaderProps }> = ({ data }) => {
   return (
     <div className="lg:flex mb-5 justify-between">
       <div className="justify-center flex flex-col">
-        <img src="/logo.png" className="w-1/2" />
+        <img src="/logo.png" className="w-1/2" alt="logo" />
         <p className="text-main font-bold pt-4 text-3xl">
           {t("user_transactions")}
         </p>

@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-type TRowData = Array<string | number>;
-
 type TColumn = {
   name: string;
   sort: boolean;

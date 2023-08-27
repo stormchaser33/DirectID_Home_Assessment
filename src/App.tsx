@@ -3,7 +3,7 @@ import { LangSelect } from "./components/atoms/LangSelect";
 import { Header } from "./components/molecules/Header";
 import DataTable from "./components/atoms/DataTable/DataTable";
 import mockup from "./mock-up/apollo-carter.json";
-import { formatCurrency, dateFormat, getData } from "./utils/utils";
+import { formatCurrency, getData } from "./utils/utils";
 import { useTranslation } from "react-i18next";
 
 function App() {
